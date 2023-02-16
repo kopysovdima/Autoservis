@@ -10,6 +10,9 @@ namespace Autoservis
     {
         static void Main(string[] args)
         {
+            CarService carService = new CarService();
+            carService.Work();
+            
         }
     }
 }
