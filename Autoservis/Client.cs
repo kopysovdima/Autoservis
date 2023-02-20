@@ -16,7 +16,10 @@ namespace Autoservis
 
         public Client()
         {
-            _money = _random.Next(300, 2000);
+            int minValueMoney = 300;
+            int maxValueMoney = 2000;
+
+            _money = _random.Next(minValueMoney, maxValueMoney);
             _car = new Car();
         }
 
