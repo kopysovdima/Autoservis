@@ -10,7 +10,10 @@ namespace Autoservis
 
         public PartWarehouse()
         {
-            for (int i = 0; i < _random.Next(30, 60); i++)
+            int maxValueDetails = 50;
+            int minValueDetails = 30;
+
+            for (int i = 0; i < _random.Next(minValueDetails, maxValueDetails); i++)
             {
                 List<CarDetail> autoparts = new DetailCatalog().GetDetails();
 
