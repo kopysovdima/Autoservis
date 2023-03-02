@@ -5,9 +5,9 @@ namespace Autoservis
 {
     internal class Car
     {
+        private static Random _random = new Random();
         private CarDetail _brokenPart;
         private List<CarDetail> _carDetails;
-        private static Random _random = new Random();
 
         public Car()
         {

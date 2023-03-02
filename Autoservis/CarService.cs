@@ -15,17 +15,8 @@ namespace Autoservis
             CreateClientsQueue();
         }
 
-        public void CreateClientsQueue()
-        {
-            for (int i = 0; i < _random.Next(7, 15); i++)
-            {
-                _clientsQueue.Enqueue(new Client());
-            }
-        }
-
         public void Work()
         {
-
             while (_clientsQueue.Count > 0)
             {
                 Client client = _clientsQueue.Dequeue();
@@ -35,7 +26,7 @@ namespace Autoservis
                 {
                     if (brokenDetail.Name.Equals(_partWarehouse.GetAutoParts()[i].Name))
                     {
-                        if (client.PaySuccess(_partWarehouse.GetAutoParts()[i]))
+                        if (client.TryPay(_partWarehouse.GetAutoParts()[i]))
                         {
                             int repairPrice = _partWarehouse.GetAutoParts()[i].Price / 10 * 2;
                             _money += _partWarehouse.GetAutoParts()[i].Price + repairPrice;
@@ -49,6 +40,16 @@ namespace Autoservis
                         }
                     }
                 }
+            }
+        }
+
+        private void CreateClientsQueue()
+        {
+            int randomNumberClients = _random.Next(7, 15);
+
+            for (int i = 0; i < randomNumberClients; i++)
+            {
+                _clientsQueue.Enqueue(new Client());
             }
         }
     }

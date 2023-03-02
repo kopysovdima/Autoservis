@@ -4,15 +4,9 @@ namespace Autoservis
 {
     internal class Client
     {
+        private static Random _random = new Random();
         private int _money;
         private Car _car;
-        private static Random _random = new Random();
-
-        public Client(int money, Car car)
-        {
-            _money = money;
-            _car = car;
-        }
 
         public Client()
         {
@@ -23,7 +17,7 @@ namespace Autoservis
             _car = new Car();
         }
 
-        public bool PaySuccess(CarDetail carDetail)
+        public bool TryPay(CarDetail carDetail)
         {
             if (carDetail.Price <= _money)
             {
@@ -37,11 +31,6 @@ namespace Autoservis
         public Car GetCar()
         {
             return _car;
-        }
-
-        public void ShowInfo()
-        {
-            Console.WriteLine($"У клиента {_money} денег и сломана {_car.BrokenPartName}");
         }
     }
 }

@@ -5,8 +5,8 @@ namespace Autoservis
 {
     internal class PartWarehouse
     {
+        private static Random _random = new Random();
         private List<CarDetail> _autoparts = new List<CarDetail>();
-        private Random _random = new Random();
 
         public PartWarehouse()
         {
@@ -18,19 +18,6 @@ namespace Autoservis
                 List<CarDetail> autoparts = new DetailCatalog().GetDetails();
 
                 _autoparts.Add(autoparts[_random.Next(autoparts.Count)]);
-            }
-        }
-
-        public List<CarDetail> GetDetails()
-        {
-            return new List<CarDetail>(_autoparts);
-        }
-
-        public void ShowInfo()
-        {
-            foreach (var autopart in _autoparts)
-            {
-                Console.WriteLine($" Деталь - {autopart.Name} её цена - {autopart.Price}");
             }
         }
 
